@@ -1,0 +1,19 @@
+/* ==========================================================================
+	1. SITE SIZING
+   ========================================================================== */
+
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+#site-wrapper {
+	height: 100%;
+	background-image: url('http://edu.다솜.com/res/bg/1.png');
+}
+
+#site-main {
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
