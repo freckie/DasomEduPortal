@@ -15,7 +15,7 @@
 
 	<!-- Javascript -->
 	<script src="//code.jquery.com/jquery.min.js"></script>
-	<script src="//code.jquery.com/background_slide.js"></script>
+	<script src="./../js/background_slide.js"></script>
 </head>
 
 <body>
@@ -26,15 +26,15 @@
 	</noscript>
 
 	<!-- Site -->
-	<div id="site-wrapper">
+	<div class="overlay" id="site-wrapper">
 
-		<div id="site-main">
-			<form id="form1" method="post" name="form1">
+		<form id="form1" method="post" name="form1" action="./../php/login_check.php">
 
-				
+			<input type="text" placeholder="ID" id="username" name="username" required/>
+			<input type="password" placeholder="PW" id="userpw" name="userpw" required/>
+			<button type="submit">Log In</button>
 
-			</form>
-		</div>
+		</form>
 
 	</div>
 
