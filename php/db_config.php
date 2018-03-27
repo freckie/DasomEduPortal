@@ -2,7 +2,7 @@
 
 $db_host = "localhost";
 $db_id = "khuphj";
-$db_pw = "1qaz2wsx";
+$db_pw = "1qaz2wsx3edc";
 $db_name = "khuphj";
 
 // Connecting

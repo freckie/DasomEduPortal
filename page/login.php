@@ -11,6 +11,7 @@
 	<title>다솜 교육 포털</title>
 
 	<!-- CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./../css/login.css">
 
 	<!-- Javascript -->
@@ -26,16 +27,27 @@
 	</noscript>
 
 	<!-- Site -->
-	<div class="overlay" id="site-wrapper">
+	<div id="site-wrapper">
 
-		<form id="form1" method="post" name="form1" action="./../php/login_check.php">
+		<div class="overlay">
+			<div class="site-main">
 
-			<input type="text" placeholder="ID" id="username" name="username" required/>
-			<input type="password" placeholder="PW" id="userpw" name="userpw" required/>
-			<button type="submit">Log In</button>
+				<form class="form-group" id="form1" method="post" name="form1" action="./../php/login_check.php">
 
-		</form>
+					<div class="page-header" style="width:100%">
+						<h1 class="font-rixm" style="cursor: default">다솜 교육 포털</h1>
+					</div>
 
+					<div class="">
+						<input class="form-control input-box font-rixm" type="text" placeholder="ID" id="username" name="username" required />
+						<input class="form-control input-box" type="password" placeholder="PW" id="userpw" name="userpw" required />
+						<button class="form-control btn btn-primary input-box font-rixm" type="submit">Log In</button>
+					</div>
+
+				</form>
+			</div>
+
+		</div>
 	</div>
 
 

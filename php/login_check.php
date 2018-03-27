@@ -19,12 +19,12 @@ if($result = $conn->query($sql))
 	}
 	else
 	{
-		echo "<script>alert('틀린 비번');</script>";
+		echo "<script>alert('틀린 비번');history.back();</script>";
 	}
 }
 else
 {
-	echo "<script>alert('없는 아이디');</script>";
+	echo "<script>alert('없는 아이디');history.back();</script>";
 }
 
 ?>

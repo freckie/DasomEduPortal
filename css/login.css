@@ -1,4 +1,18 @@
 /* ==========================================================================
+	0. FONTS
+   ========================================================================== */
+
+/************* Common *************/
+@font-face {
+	font-family: 'RixBalgeunGothic';
+	src: url(./../res/font/Rix밝은고딕M.ttf) format('truetype');
+}
+
+.font-rixm {
+	font-family: 'RixBalgeunGothic';
+}
+
+/* ==========================================================================
 	1. SITE SIZING
    ========================================================================== */
 
@@ -7,7 +21,22 @@ html, body {
 	margin: 0;
 }
 
+/* ==========================================================================
+	2. CONTENTS
+   ========================================================================== */
+
+.overlay {
+  /*display: none;*/
+  z-index: 1000;
+  position: fixed;
+  width: 100%; height: 100%;
+  left: 0; top: 0;
+  background-color: rgba(0,0,0, 0.55);
+  overflow-x: hidden;
+}
+
 #site-wrapper {
+	width: 100%;
 	height: 100%;
 	background-image: url('http://edu.다솜.com/res/bg/1.png');
 	background-size: cover;
@@ -16,23 +45,35 @@ html, body {
 	position: fixed;
 }
 
-#site-main {
+.site-main {
+	top: 5%;
+	width: 70%;
+	min-width: 400px;
+	max-width: 550px;
+	margin: 0 auto;
+
+	box-sizing: border-box;
 	position: relative;
 	display: flex;
 	justify-content: center;
+
+	background-color: #fefefe;
+    border: 2px solid #DCDCDD;
+    border-radius: 12px;
 }
 
 #form1 {
-	width: 70%;
-	box-sizing: border-box;
+	width: 80%;
+	justify-content: center;
+	text-align: center;
 }
 
-.overlay {
-  /*display: none;*/
-  z-index: 1000;
-  position: fixed;
-  width: 100%; height: 100%;
-  left: 0; top: 0;
-  background-color: rgba(0,0,0, 0.4);
-  overflow-x: hidden;
+.input-box {
+	/*width: 80%;
+	font-size: 21px;
+	border: none;
+	background: none;*/
+	text-align: center;
+	margin: 10px;
+	font-size: 1.1em;
 }
