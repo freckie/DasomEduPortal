@@ -1,30 +1,46 @@
 <?php
 
+header('Content-type: application/json');
+
 require "./db_config.php";
 
 $id = $_POST['username'];
 $pw = $_POST['userpw'];
+
+$response = array(
+	'status'=>''
+);
 
 $table_name = "dasom_account";
 $sql = "SELECT * FROM $table_name WHERE id='$id'";
 
 if($result = $conn->query($sql))
 {
-	if($row['pw'] == md5($pw))
+	$row = $result->fetch_assoc();
+	if(!strcmp($row['pw'], md5($pw)))
 	{
 		/*
 		$_SESSION[] = $row[];
 		*/
-		echo "<script>alert('로그인 성공');</script>";
+		//echo "success";
+		$response['status'] = 'success';
 	}
 	else
 	{
-		echo "<script>alert('틀린 비번');history.back();</script>";
+		//echo "error";
+		$response['status'] = 'error';
 	}
 }
 else
 {
-	echo "<script>alert('없는 아이디');history.back();</script>";
+	$response['status'] = 'error';
+	//echo "error";
 }
+
+$result->free();
+
+$conn->close();
+
+echo json_encode($response);
 
 ?>

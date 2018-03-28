@@ -16,7 +16,9 @@
 
 	<!-- Javascript -->
 	<script src="//code.jquery.com/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<script src="./../js/background_slide.js"></script>
+	<script src="./../js/login_control.js"></script>
 </head>
 
 <body>
@@ -30,21 +32,33 @@
 	<div id="site-wrapper">
 
 		<div class="overlay">
+
+			<!-- Site Contents -->
 			<div class="site-main">
 
-				<form class="form-group" id="form1" method="post" name="form1" action="./../php/login_check.php">
+				<!--<form class="form-group" id="form1" method="post" name="form1">-->
+				<div class="form-group" id="form1">
 
 					<div class="page-header" style="width:100%">
 						<h1 class="font-rixm" style="cursor: default">다솜 교육 포털</h1>
 					</div>
 
-					<div class="">
+					<div>
 						<input class="form-control input-box font-rixm" type="text" placeholder="ID" id="username" name="username" required />
 						<input class="form-control input-box" type="password" placeholder="PW" id="userpw" name="userpw" required />
-						<button class="form-control btn btn-primary input-box font-rixm" type="submit">Log In</button>
+						<button class="form-control btn btn-primary input-box font-rixm" id="login-btn">Log In</button>
 					</div>
 
-				</form>
+				<!--</form>-->
+			</div>
+
+			<!-- Login Alert Modal -->
+			<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="login-alert-modal">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<span class="font-rixm" id="alert-modal-content">로그인 실패</span>
+					</div>
+				</div>
 			</div>
 
 		</div>
