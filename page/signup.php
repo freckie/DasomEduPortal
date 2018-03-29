@@ -18,6 +18,7 @@
 	<script src="//code.jquery.com/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<script src="./../js/background_slide.js"></script>
+	<script src="./../js/signup_id_dup_check.js"></script>
 </head>
 
 <body>
@@ -42,12 +43,60 @@
 					</div>
 
 					<div>
-						<input class="form-control input-box font-rixm" type="text" placeholder="ID" id="username" name="username" required />
-						<input class="form-control input-box" type="password" placeholder="PW" id="userpw" name="userpw" required />
+						<div class="input-group">
+							<input type="text" class="form-control font-rixm" placeholder="ID" aria-describedby="basic-addon2" id="userid" name="userid" required />
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button">중복 조회</button>
+							</span>
+						</div>
+						<div class="input-group">
+							<input class="form-control input-box" type="password" placeholder="PW" id="userpw" name="userpw" required />
+							<input class="form-control input-box font-rixm" type="text" placeholder="이름" id="username" name="username" required />
+							<input class="form-control input-box font-rixm" type="text" placeholder="입학년도 (ex. 2017)" id="useryear" name="useryear" required />
+							<input class="form-control input-box font-rixm" type="text" placeholder="e-mail" id="usermail" name="usermail" required />
+						</div>
+
 						<button class="form-control btn btn-primary input-box font-rixm" id="login-btn">Sign Up</button>
 					</div>
 
-			</div>
+			</div> <!-- /.site-content -->
+
+			<!-- ID Dup-Check Success Modal -->
+			<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="id-success-modal">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+							<h4 class="modal-title" id="alert-modal-label">ID 중복 조회</h4>
+						</div>
+						<div class="modal-body" style="text-align: center">
+							<span class="font-rixm" id="alert-modal-content">사용 가능한 ID 입니다.<br>사용하시려면 확인 버튼을 눌러주십시오.</span>
+							<button type="button" class="btn btn-warning">취소</button>
+							<button type="button" class="btn btn-success">확인</button>
+						</div>
+					</div> <!-- /.modal-content -->
+				</div> <!-- /.modal-dialog -->
+			</div> <!-- /.modal -->
+
+			<!-- ID Dup-Check Fail Modal -->
+			<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="id-fail-modal">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+							<h4 class="modal-title" id="alert-modal-label">ID 중복 조회</h4>
+						</div>
+						<div class="modal-body" style="text-align: center">
+							<span class="font-rixm" id="alert-modal-content">이미 존재하는 ID 입니다. 다른 ID를 이용해 주십시오.</span>
+							<button type="button" class="btn btn-warning">닫기</button>
+						</div>
+					</div> <!-- /.modal-content -->
+				</div> <!-- /.modal-dialog -->
+			</div> <!-- /.modal -->
 
 		</div>
 	</div>

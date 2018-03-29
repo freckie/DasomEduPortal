@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * /php/login_check.php
+ * Login Checking by AJAX
+*/
+
 header('Content-type: application/json');
 
 require "./db_config.php";
