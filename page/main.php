@@ -43,34 +43,13 @@
 					</div>
 
 					<div>
-						<input class="form-control input-box font-rixm" type="text" placeholder="ID" id="username" name="username" required />
-						<input class="form-control input-box" type="password" placeholder="PW" id="userpw" name="userpw" required />
-						<button class="form-control btn btn-primary input-box font-rixm" id="login-btn" type="submit">Log In</button>
+						<h5>여기 메인 화면인데 공사중임. 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 UNDER CONSTRUCT UNDER CONSTRUCT
+						UNDER CONSTRUCT UNDER CONSTRUCT</h5>
 					</div>
 
 			</div>
 
-			<!-- Login Alert Modal -->
-			<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="login-alert-modal">
-				<div class="modal-dialog modal-sm">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
-							<h4 class="modal-title" id="alert-modal-label">로그인 실패!</h4>
-						</div>
-						<div class="modal-body" style="text-align: center">
-							<span class="font-rixm" id="alert-modal-content">일치하는 정보가 없습니다.</span>
-						</div>
-					</div> <!-- /.modal-content -->
-				</div> <!-- /.modal-dialog -->
-			</div> <!-- /.modal -->
-
 		</div>
-	</div>
-
-
 </body>
 
 </html>

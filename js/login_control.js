@@ -19,11 +19,13 @@ $(function() {
 			success: function(data) {
 				if(data.status == 'success') {
 					console.log('로그인 성공');
-					//window.location.href = './main.php';
+					window.location.href = './main.php';
 				} else if(data.status == 'error') {
 					modal_open();
 				}
 			},
 		});
+
+		return true;
 	});
 });
