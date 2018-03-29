@@ -42,22 +42,23 @@
 						<h1 class="font-rixm" style="cursor: default">다솜 교육 포털</h1>
 					</div>
 
-					<div>
+					<form method="post" action="./../php/do_signup.php">
 						<div class="input-group">
 							<input type="text" class="form-control font-rixm" placeholder="ID" aria-describedby="basic-addon2" id="userid" name="userid" required />
 							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">중복 조회</button>
+								<button class="btn btn-default" type="button" id="dup-check-btn">중복 조회</button>
 							</span>
 						</div>
 						<div class="input-group">
 							<input class="form-control input-box" type="password" placeholder="PW" id="userpw" name="userpw" required />
 							<input class="form-control input-box font-rixm" type="text" placeholder="이름" id="username" name="username" required />
 							<input class="form-control input-box font-rixm" type="text" placeholder="입학년도 (ex. 2017)" id="useryear" name="useryear" required />
+							<input class="form-control input-box font-rixm" type="text" placeholder="학번 (ex. 1990101004)" id="usernum" name="usernum" required />
 							<input class="form-control input-box font-rixm" type="text" placeholder="e-mail" id="usermail" name="usermail" required />
 						</div>
 
-						<button class="form-control btn btn-primary input-box font-rixm" id="login-btn">Sign Up</button>
-					</div>
+						<button class="form-control btn btn-primary input-box font-rixm" id="signup-btn" type="submit">Sign Up</button>
+					</form>
 
 			</div> <!-- /.site-content -->
 
@@ -73,8 +74,8 @@
 						</div>
 						<div class="modal-body" style="text-align: center">
 							<span class="font-rixm" id="alert-modal-content">사용 가능한 ID 입니다.<br>사용하시려면 확인 버튼을 눌러주십시오.</span>
-							<button type="button" class="btn btn-warning">취소</button>
-							<button type="button" class="btn btn-success">확인</button>
+							<button type="button" class="btn btn-warning" id="modal-cancel1-btn">취소</button>
+							<button type="button" class="btn btn-success" id="modal-ok-btn">확인</button>
 						</div>
 					</div> <!-- /.modal-content -->
 				</div> <!-- /.modal-dialog -->
@@ -92,15 +93,15 @@
 						</div>
 						<div class="modal-body" style="text-align: center">
 							<span class="font-rixm" id="alert-modal-content">이미 존재하는 ID 입니다. 다른 ID를 이용해 주십시오.</span>
-							<button type="button" class="btn btn-warning">닫기</button>
+							<button type="button" class="btn btn-warning" id="modal-cancel2-btn">닫기</button>
 						</div>
 					</div> <!-- /.modal-content -->
 				</div> <!-- /.modal-dialog -->
 			</div> <!-- /.modal -->
 
 		</div>
-	</div>
 
+	</div> <!-- /.site -->
 
 </body>
 

@@ -1,3 +1,5 @@
+var isChecked = false;
+
 $('#id-success-modal').modal({
 	keyboard:true
 });
@@ -6,8 +8,15 @@ $('#id-fail-modal').modal({
 	keyboard:true
 });
 
+// When page loaded.
 $(function() {
-	$("#login-btn").click(function() {
+	// ID Input value change event
+	$('#userid').change(function() {
+		isChecked = false;
+	});
+
+	// Dup Checking with AJAX
+	$("#dup-check-btn").click(function() {
 		$.ajax({
 			type:'post',
 			url:'./../php/id_dup_check.php',
@@ -24,5 +33,49 @@ $(function() {
 				}
 			},
 		});
+	});
+
+	// modal control
+	$("#modal-cancel1-btn").click(function() {
+		isChecked = false;
+		$('#userid').val('');
+		$('#id-success-modal').modal('hide');
+	});
+
+	// modal control
+	$("#modal-cancel2-btn").click(function() {
+		isChecked = false;
+		$('#userid').val('');
+		$('#id-fail-modal').modal('hide');
+	});
+
+	// modal control
+	$("#modal-ok-btn").click(function() {
+		isChecked = true;
+		$('#id-success-modal').modal('hide');
+	});
+
+	// Signup Button control
+	$("#signup-btn").submit(function() {
+		if(isChecked == false)
+		{
+			alert("ID 중복체크를 해주세요.");
+			return false;
+		}
+		else
+		{
+			var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
+			
+			// email not match
+			if (!($("#usermail").val().match(regExp)))
+			{
+				alert("이메일을 정확하게 입력해주세요.");
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
 	});
 });
