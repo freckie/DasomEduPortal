@@ -42,7 +42,7 @@
 						<h1 class="font-rixm" style="cursor: default">다솜 교육 포털</h1>
 					</div>
 
-					<form method="post" action="./../php/do_signup.php">
+					<form method="post" action="./../php/do_signup.php" id="signup-form">
 						<div class="input-group">
 							<input type="text" class="form-control font-rixm" placeholder="ID" aria-describedby="basic-addon2" id="userid" name="userid" required />
 							<span class="input-group-btn">
@@ -57,7 +57,7 @@
 							<input class="form-control input-box font-rixm" type="text" placeholder="e-mail" id="usermail" name="usermail" required />
 						</div>
 
-						<button class="form-control btn btn-primary input-box font-rixm" id="signup-btn" type="submit">Sign Up</button>
+						<button class="form-control btn btn-primary input-box font-rixm" id="signup-btn" type="button">Sign Up</button>
 					</form>
 
 			</div> <!-- /.site-content -->

@@ -56,7 +56,8 @@ $(function() {
 	});
 
 	// Signup Button control
-	$("#signup-btn").submit(function() {
+	$("#signup-btn").click(function() {
+		console.log('SignUp processing..');
 		if(isChecked == false)
 		{
 			alert("ID 중복체크를 해주세요.");
@@ -64,17 +65,27 @@ $(function() {
 		}
 		else
 		{
-			var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
-			
-			// email not match
-			if (!($("#usermail").val().match(regExp)))
+			var re = /[0-9]{10}/;
+			if(!($("#usernum").val().match(re)))
 			{
-				alert("이메일을 정확하게 입력해주세요.");
+				alert("학번을 정확하게 입력해주세요.");
 				return false;
 			}
 			else
 			{
-				return true;
+				var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
+				
+				// email not match
+				if (!($("#usermail").val().match(regExp)))
+				{
+					alert("이메일을 정확하게 입력해주세요.");
+					return false;
+				}
+				else
+				{
+					$("#signup-form").submit();
+					return true;
+				}
 			}
 		}
 	});

@@ -23,4 +23,7 @@ $conn->query($sql);
 
 $conn->close();
 
+//header("Location: http://edu.다솜.com/page/login.php"); 
+echo "<script>alert('회원가입 완료.'); window.location.href='http://edu.다솜.com/page/login.php';</script>";
+
 ?>

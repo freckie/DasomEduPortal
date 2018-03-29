@@ -20,7 +20,7 @@ $sql = "SELECT * FROM $table_name WHERE id='$id'";
 $result = $conn->query($sql);
 
 // If ID is already exist,
-if($result->num_rows == 1)
+if($result->num_rows != 0)
 {
 	$response['status'] = 'error';
 }
