@@ -1,0 +1,27 @@
+.content-card {
+	width: 80%;
+	margin: 15px auto;
+	/*height: 80px;*/
+	padding: 5px 0px;
+	cursor: pointer;
+	border-radius: 7.5px;
+	background-color: #c5e1a5;
+}
+
+.content-card-deacti {
+	background-color: #bdbdbd;	
+}
+
+.card-title {
+	width: 100%;
+	padding-left: 5%;
+	text-align: left;
+
+	font-size: 1.5em;
+}
+
+.card-text {
+	width: 100%;
+	padding-right: 5%;
+	text-align: right;
+}

@@ -13,6 +13,7 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./../css/common.css">
+	<link rel="stylesheet" type="text/css" href="./../css/main.css">
 
 	<!-- Javascript -->
 	<script src="//code.jquery.com/jquery.min.js"></script>
@@ -42,9 +43,12 @@
 						<h1 class="font-rixm" style="cursor: default">다솜 교육 포털</h1>
 					</div>
 
-					<div>
-						<h5>여기 메인 화면인데 공사중임. 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 공사중 UNDER CONSTRUCT UNDER CONSTRUCT
-						UNDER CONSTRUCT UNDER CONSTRUCT</h5>
+					<? 
+						require "./../php/main_get_categories.php";
+					?>
+
+					<div style="margin-top: 30px">
+						<h5>[ 현재 접속자 ] 김명현 17 / 2017103964</h5>
 					</div>
 
 			</div>
