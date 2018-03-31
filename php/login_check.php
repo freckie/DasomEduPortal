@@ -27,19 +27,16 @@ if($result = $conn->query($sql))
 		/*
 		$_SESSION[] = $row[];
 		*/
-		//echo "success";
 		$response['status'] = 'success';
 	}
 	else
 	{
-		//echo "error";
 		$response['status'] = 'error';
 	}
 }
 else
 {
 	$response['status'] = 'error';
-	//echo "error";
 }
 
 $result->free();

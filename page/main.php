@@ -1,4 +1,4 @@
-<!-- login.php -->
+<!-- main.php -->
 
 <!DOCTYPE html>
 <html>
