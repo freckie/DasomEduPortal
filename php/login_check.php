@@ -24,9 +24,15 @@ if($result = $conn->query($sql))
 	$row = $result->fetch_assoc();
 	if(!strcmp($row['pw'], md5($pw)))
 	{
-		/*
-		$_SESSION[] = $row[];
-		*/
+		session_start();
+
+		$_SESSION['user_idx'] = $row['idx'];
+		$_SESSION['user_id'] = $row['id'];
+		$_SESSION['user_name'] = $row['name'];
+		$_SESSION['user_year'] = $row['year'];
+		$_SESSION['user_mail'] = $row['mail'];
+		$_SESSION['user_num'] = $row['num'];
+
 		$response['status'] = 'success';
 	}
 	else

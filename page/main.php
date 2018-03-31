@@ -1,5 +1,9 @@
 <!-- main.php -->
 
+<?
+	require "./../php/get_session.php";
+?>
+
 <!DOCTYPE html>
 <html>
 
