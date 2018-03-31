@@ -1,7 +1,9 @@
-<!-- main.php -->
+<!-- board.php -->
 
 <?
 	require "./../php/get_session.php";
+	require "./../php/board_get_posts.php";
+	$category_id = $_GET['category'];
 ?>
 
 <!DOCTYPE html>
@@ -43,11 +45,13 @@
 				<div class="form-group" id="form1">
 
 					<div class="page-header" style="width:100%">
-						<h1 class="font-rixm" style="cursor: default">다솜 교육 포털</h1>
+						<h2 class="font-rixm" style="cursor: default">
+							<? echo_category($category_id);	?>
+						</h2>
 					</div>
 
 					<? 
-						require "./../php/main_get_categories.php";
+						echo_html($category_id);
 					?>
 
 					<div style="margin-top: 30px">

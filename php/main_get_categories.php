@@ -2,7 +2,7 @@
 
 /*
  * /php/main_get_categories.php
- * Get Category datas for main.php
+ * Get Category data for main.php
 */
 
 require "db_config.php";
