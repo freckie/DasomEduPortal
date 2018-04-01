@@ -5,16 +5,98 @@
  * Get Post data for post.php
 */
 
-require "db_config.php";
+$post_title = "";
+$post_desc = "";
 
-$table_name = "dasom_edu_post";
+// 1. Get Post Data (dasom_edu_post :: description, title, etc.)
+function get_post($post_id)
+{
+	global $post_title;
 
-// cards which status==1
-$sql = "SELECT * FROM $table_name WHERE status=1 ORDER BY idx DESC";
-$result = $conn->query($sql);
+	require "db_config.php";
+	$sql = "SELECT description, title FROM dasom_edu_post WHERE idx=$post_id";
+	$result = $conn->query($sql);
+	$data = $result->fetch_assoc();
 
-$result->free();
+	$post_title = $data['title'];
+	$post_desc = $data['description'];
 
-$conn->close();
+	$result->free();
+	$conn->close();
+}
+
+// 2. Get Submit Data (dasom_edu_submit :: submitter, post, status)
+function echo_submit($post_id, $submitter_id) // echos only submit button
+{
+	require "db_config.php";
+	$sql = "SELECT status FROM dasom_edu_submit WHERE submitter=$submitter AND post=$post_id";
+	$result = $conn->query($sql);
+	$data = $result->fetch_assoc();
+
+	// if data exists (resubmit)
+	if($data['status'] == 1)
+	{
+		$echo_str = "";
+	}
+	else // if no data (didn't submit)
+	{
+		$echo_str = "";
+	}
+
+	$result->free();
+	$conn->close();
+
+	echo $echo_str();
+}
+
+// 3. Get Comment Data (dasom_edu_comment :: poster, content, date(DESC))
+function echo_comments($post_id)
+{
+	require "db_config.php";
+	$sql = "SELECT poster, content FROM dasom_edu_comment WHERE post=$post_id ORDER BY date DESC";
+
+	// if no data (no comments)
+	if(!($result = $conn->query($sql)))
+	{
+		echo "no comments";
+	}
+	else // if comment exists
+	{
+		while($row = $result->fetch_assoc())
+		{
+			$echo_str = "";
+			echo $echo_str;
+		}
+
+		$result->free();
+	}
+
+	$conn->close();
+}
+
+// 4. Get Reference Data (dasom_edu_reference :: content, link)
+function echo_ref($post_id)
+{
+	require "db_config.php";
+	$sql = "SELECT content, link FROM dasom_edu_reference WHERE post=$post_id ORDER BY idx DESC";
+
+	// if no data (no references)
+	if(!($result = $conn->query($sql)))
+	{
+		echo "no references";
+	}
+	else // if comment exists
+	{
+		while($row = $result->fetch_assoc())
+		{
+			$echo_str = "";
+			echo $echo_str;
+		}
+
+		$result->free();
+	}
+
+	$conn->close();
+}
 
 ?>

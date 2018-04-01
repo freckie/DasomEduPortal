@@ -50,10 +50,6 @@
 						</h2>
 					</div>
 
-					<? 
-						echo_html($category_id);
-					?>
-
 					<div style="margin-top: 30px">
 						<?
 							echo "<h5>[ 현재 접속자 ] ".$_SESSION['user_name']." / ".$_SESSION['user_num']."</h5>";
