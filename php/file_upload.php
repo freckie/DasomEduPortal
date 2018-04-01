@@ -42,15 +42,7 @@ if(!in_array($ext, $allowed))
 // file move
 move_uploaded_file($_FILES['submit-file']['tmp_name'], "/home1/khuphj/public_html/edu/file/$name");
 
-echo "$upload_dir/$name<br>";
-
-
-echo "<h2>파일 정보</h2>
-<ul>
-	<li>파일명: $name</li>
-	<li>확장자: $ext</li>
-	<li>파일형식: {$_FILES['submit-file']['type']}</li>
-	<li>파일크기: {$_FILES['submit-file']['size']} Bytes</li>
-</ul>";
+// redirection
+echo "<script>alert('제출 완료.');history.go(-1);</script>";
 
 ?>
