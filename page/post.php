@@ -68,10 +68,10 @@
 							<div class="sub-form-header">
 								<h4 class="font-rixm">과제 제출</h4>
 							</div>
-							<div class="sub-content">
-								<input type="file" id="submit-file" value="과제 파일 제출">
+							<form class="sub-content" action="./../php/file_upload.php" method="post" enctype="multipart/form-data">
+								<input type="file" id="submit-file" name="submit-file">
 								<? echo_submit($post_id, $_SESSION['user_id']); ?>
-							</div>
+							</form>
 						</div>
 
 						<!-- sub-form #3 -->
