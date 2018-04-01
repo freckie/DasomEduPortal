@@ -1,0 +1,30 @@
+.sub-form {
+	width: 100%;
+	margin: 20px auto;
+	background-color: #f7f7f7;
+	border-radius: 10px;
+	padding: 1px 0 10px;
+}
+
+.sub-form-header {
+	margin: 20px 0;
+}
+
+.sub-content {
+	width: 90%;
+	margin: 0 auto;
+}
+
+#area {
+	width: 100%;
+	overflow: auto;
+}
+
+.comment {
+	width: 100%;
+	text-align: left;
+}
+
+.refer-link {
+	cursor: pointer;
+}

@@ -55,6 +55,8 @@ if(isset($_SESSION['user_id']))
 						<input class="form-control input-box font-rixm" type="text" placeholder="ID" id="username" name="username" required />
 						<input class="form-control input-box" type="password" placeholder="PW" id="userpw" name="userpw" required />
 						<button class="form-control btn btn-primary input-box font-rixm" id="login-btn" type="submit">Log In</button>
+						<span class="font-rixm">회원이 아니라면 가입하세요 : </span>
+						<a style="text-align: center" href="./signup.php">회원가입</a>
 					</div>
 
 			</div>

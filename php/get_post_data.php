@@ -11,7 +11,7 @@ $post_desc = "";
 // 1. Get Post Data (dasom_edu_post :: description, title, etc.)
 function get_post($post_id)
 {
-	global $post_title;
+	global $post_title, $post_desc;
 
 	require "db_config.php";
 	$sql = "SELECT description, title FROM dasom_edu_post WHERE idx=$post_id";
@@ -29,24 +29,32 @@ function get_post($post_id)
 function echo_submit($post_id, $submitter_id) // echos only submit button
 {
 	require "db_config.php";
-	$sql = "SELECT status FROM dasom_edu_submit WHERE submitter=$submitter AND post=$post_id";
-	$result = $conn->query($sql);
-	$data = $result->fetch_assoc();
+	$sql = "SELECT status FROM dasom_edu_submit WHERE submitter='$submitter_id' AND post=$post_id";
 
-	// if data exists (resubmit)
-	if($data['status'] == 1)
+	if(!($result = $conn->query($sql)))
 	{
-		$echo_str = "";
+		$echo_str = '<button class="btn btn-primary">제출</button>';
 	}
-	else // if no data (didn't submit)
+	else
 	{
-		$echo_str = "";
+		$data = $result->fetch_assoc();
+
+		// if data exists (resubmit)
+		if($data['status'] == 1)
+		{
+			$echo_str = '<button class="btn btn-success">재제출</button>';
+		}
+		else // if no data (didn't submit)
+		{
+			$echo_str = '<button class="btn btn-primary">제출</button>';
+		}
+
+		$result->free();
 	}
 
-	$result->free();
 	$conn->close();
 
-	echo $echo_str();
+	echo $echo_str;
 }
 
 // 3. Get Comment Data (dasom_edu_comment :: poster, content, date(DESC))
@@ -58,13 +66,16 @@ function echo_comments($post_id)
 	// if no data (no comments)
 	if(!($result = $conn->query($sql)))
 	{
-		echo "no comments";
+		echo "<span class='font-rixm'>댓글 없음.</span>";
 	}
 	else // if comment exists
 	{
 		while($row = $result->fetch_assoc())
 		{
-			$echo_str = "";
+			$echo_str = '<div class="comment font-rixm>'
+				. '<span>' . $row['poster'] . ' &nbsp;:&nbsp; ' . $row['content'] . '</span>'
+				. '</div>';
+
 			echo $echo_str;
 		}
 

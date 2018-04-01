@@ -4,6 +4,8 @@
 	require "./../php/get_session.php";
 	require "./../php/get_post_data.php";
 	$post_id = $_GET['id'];
+
+	get_post($post_id);
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +22,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./../css/common.css">
 	<link rel="stylesheet" type="text/css" href="./../css/main.css">
+	<link rel="stylesheet" type="text/css" href="./../css/post.css">
 
 	<!-- Javascript -->
 	<script src="//code.jquery.com/jquery.min.js"></script>
@@ -46,9 +49,55 @@
 
 					<div class="page-header" style="width:100%">
 						<h2 class="font-rixm" style="cursor: default">
-							<? echo_category($category_id);	?>
+							<? echo $post_title; ?>
 						</h2>
+
+						<!-- sub-form #1 -->
+						<div class="sub-form">
+							<div class="sub-form-header">
+								<h4 class="font-rixm">과제</h4>
+							</div>
+							<div class="sub-content">
+								<textarea id="area" row="4" readonly><? echo $post_desc; ?>
+								</textarea>
+							</div>
+						</div>
+
+						<!-- sub-form #2 -->
+						<div class="sub-form">
+							<div class="sub-form-header">
+								<h4 class="font-rixm">과제 제출</h4>
+							</div>
+							<div class="sub-content">
+								<input type="file" id="submit-file" value="과제 파일 제출">
+								<? echo_submit($post_id, $_SESSION['user_id']); ?>
+							</div>
+						</div>
+
+						<!-- sub-form #3 -->
+						<div class="sub-form">
+							<div class="sub-form-header">
+								<h4 class="font-rixm">댓글</h4>
+							</div>
+							<div class="sub-content">
+								<? echo_comments($post_id); ?>
+							</div>
+						</div>
+
+						<!-- sub-form #4 -->
+						<div class="sub-form">
+							<div class="sub-form-header">
+								<h4 class="font-rixm">참고 자료</h4>
+							</div>
+							<div class="sub-content font-rixm">
+								<span>1. 어아어아어 
+									<a class="refer-link">(링크)</a>
+								</span>
+							</div>
+						</div>
+
 					</div>
+
 
 					<div style="margin-top: 30px">
 						<?

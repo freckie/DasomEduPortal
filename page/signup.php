@@ -58,6 +58,10 @@
 						</div>
 
 						<button class="form-control btn btn-primary input-box font-rixm" id="signup-btn" type="button">Sign Up</button>
+
+						<div style="margin-top: 30px">
+							<span class="font-rixm">비밀번호는 암호화 됩니다 ^^</span>
+						</div>
 					</form>
 
 			</div> <!-- /.site-content -->
