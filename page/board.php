@@ -58,6 +58,7 @@
 						<?
 							echo "<h5>[ 현재 접속자 ] ".$_SESSION['user_name']." / ".$_SESSION['user_num']."</h5>";
 						?>
+						<a href="./../php/logout.php"><h5>(로그아웃)</h5></a>
 					</div>
 
 			</div>

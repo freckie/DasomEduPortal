@@ -22,6 +22,8 @@ $(function() {
 					window.location.href = './main.php';
 				} else if(data.status == 'error') {
 					modal_open();
+				} else if(data.status == 'non-admit') {
+					alert("미승인된 계정입니다. 교육부장에게 문의하세요.");
 				}
 			},
 		});

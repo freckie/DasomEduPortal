@@ -30,8 +30,6 @@ $(function() {
 					$('#id-success-modal').modal('show');
 				} else if(data.status == 'error') {
 					$('#id-fail-modal').modal('show');
-				} else if(data.status == 'non-admit') {
-					alert("미승인된 계정입니다. 교육부장에게 문의하세요.");
 				}
 			},
 		});
