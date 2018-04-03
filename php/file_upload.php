@@ -35,7 +35,7 @@ if($error != UPLOAD_ERR_OK)
 // ext check
 if(!in_array($ext, $allowed))
 {
-	echo "<script>alert('허용되지 않는 확장자입니다.\n허용되는 확장자 : .cpp .py .zip');</script>";
+	echo "<script>alert('허용되지 않는 확장자입니다. 허용되는 확장자 : .cpp .py .zip');</script>";
 	exit;
 }
 

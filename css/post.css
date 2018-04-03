@@ -18,6 +18,8 @@
 #area {
 	width: 100%;
 	overflow: auto;
+	resize:none;
+	background-color: #efefef;
 }
 
 .comment {
@@ -27,4 +29,14 @@
 
 .refer-link {
 	cursor: pointer;
+}
+
+#new-comment {
+	width: 100%;
+	overflow: auto;
+	resize:none;
+}
+
+.submit-btns {
+	margin-top: 10px;
 }

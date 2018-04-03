@@ -82,6 +82,12 @@
 							<div class="sub-content">
 								<? echo_comments($post_id); ?>
 							</div>
+							<form class="sub-content" action="./../php/comment_upload.php" method="post">
+								<input type="hidden" name="post-idx" value="<? echo $post_id; ?>">
+								<input type="hidden" name="poster" value="<? echo $_SESSION['user_name']; ?>">
+								<textarea id="new-comment" name="new-comment" placeholder="여기에 댓글을 입력하십시오."></textarea>
+								<button class="btn btn-primary submit-btns">등록</button>
+							</form>
 						</div>
 
 						<!-- sub-form #4 -->

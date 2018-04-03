@@ -33,7 +33,7 @@ function echo_submit($post_id, $submitter_id) // echos only submit button
 
 	if(!($result = $conn->query($sql)))
 	{
-		$echo_str = '<button class="btn btn-primary">제출</button>';
+		$echo_str = '<button class="btn btn-primary submit-btns">제출</button>';
 	}
 	else
 	{
@@ -42,11 +42,11 @@ function echo_submit($post_id, $submitter_id) // echos only submit button
 		// if data exists (resubmit)
 		if($data['status'] == 1)
 		{
-			$echo_str = '<button class="btn btn-success">재제출</button>';
+			$echo_str = '<button class="btn btn-success submit-btns">재제출</button>';
 		}
 		else // if no data (didn't submit)
 		{
-			$echo_str = '<button class="btn btn-primary">제출</button>';
+			$echo_str = '<button class="btn btn-primary submit-btns">제출</button>';
 		}
 
 		$result->free();
