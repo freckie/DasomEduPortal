@@ -96,9 +96,7 @@
 								<h4 class="font-rixm">참고 자료</h4>
 							</div>
 							<div class="sub-content font-rixm">
-								<span>1. 어아어아어 
-									<a class="refer-link">(링크)</a>
-								</span>
+								<? echo_ref($post_id); ?>
 							</div>
 						</div>
 

@@ -12,6 +12,11 @@
 	font-family: 'RixBalgeunGothic';
 }
 
+.font-nanum {
+	font-family: 'NANUMBARUNGOTHIC';
+	src: url(./../res/font/NANUMBARUNGOTHIC.TTF) format('truetype');
+}
+
 /* ==========================================================================
 	1. SITE SIZING
    ========================================================================== */

@@ -72,7 +72,7 @@ function echo_comments($post_id)
 	{
 		while($row = $result->fetch_assoc())
 		{
-			$echo_str = '<div class="comment font-rixm>'
+			$echo_str = '<div class="comment font-nanum">'
 				. '<span>' . $row['poster'] . ' &nbsp;:&nbsp; ' . $row['content'] . '</span>'
 				. '</div>';
 
@@ -89,18 +89,20 @@ function echo_comments($post_id)
 function echo_ref($post_id)
 {
 	require "db_config.php";
-	$sql = "SELECT content, link FROM dasom_edu_reference WHERE post=$post_id ORDER BY idx DESC";
+	$sql = "SELECT name, url FROM dasom_edu_reference WHERE post=$post_id ORDER BY idx DESC";
 
 	// if no data (no references)
 	if(!($result = $conn->query($sql)))
 	{
-		echo "no references";
+		echo "추가 참고자료 없음.";
 	}
-	else // if comment exists
+	else // if reference exists
 	{
+		$count = 1;
 		while($row = $result->fetch_assoc())
 		{
-			$echo_str = "";
+			$echo_str = "<span>".$count.".&nbsp;".$row['name']."&nbsp;"
+				."<a class='refer-link' href='./../php/download_file.php?id=".$row['idx']."'>(링크)</a></span>";
 			echo $echo_str;
 		}
 
