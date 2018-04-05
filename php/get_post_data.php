@@ -14,7 +14,7 @@ function get_post($post_id)
 	global $post_title, $post_desc;
 
 	require "db_config.php";
-	$sql = "SELECT description, title FROM dasom_edu_post WHERE idx=$post_id";
+	$sql = "SELECT description, title FROM dasom_edu_post WHERE idx=$post_id ORDER BY date DESC";
 	$result = $conn->query($sql);
 	$data = $result->fetch_assoc();
 

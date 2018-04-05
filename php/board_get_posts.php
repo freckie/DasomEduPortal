@@ -30,7 +30,7 @@ function echo_html($args)
 {
 	require "db_config.php";
 
-	$sql = "SELECT idx, title, date FROM dasom_edu_post WHERE category_id=$args ORDER BY idx DESC";
+	$sql = "SELECT idx, title, date FROM dasom_edu_post WHERE category_id=$args ORDER BY date DESC";
 
 	if($result = $conn->query($sql))
 	{
