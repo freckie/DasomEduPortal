@@ -6,7 +6,8 @@
 */
 
 // setting
-$upload_dir = "./../file";
+$user_name = $_POST['user_name_file'];
+$upload_dir = "./../file/".$user_name;
 $allowed = array('cpp', 'py', 'zip');
 
 // variables
