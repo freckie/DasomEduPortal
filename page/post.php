@@ -71,6 +71,7 @@
 							<form class="sub-content" action="./../php/file_upload.php" method="post" enctype="multipart/form-data">
 								<input type="file" id="submit-file" name="submit-file">
 								<? echo_submit($post_id, $_SESSION['user_id']); ?>
+								<input type="hidden" name="user_name_file" value="<? echo $_SESSION['user_name'];?>">
 							</form>
 						</div>
 
