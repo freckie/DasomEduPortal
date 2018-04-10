@@ -40,9 +40,13 @@ function echo_submit($post_id, $submitter_id) // echos only submit button
 		$data = $result->fetch_assoc();
 
 		// if data exists (resubmit)
-		if($data['status'] == 1)
+		if($data['status'] == 0)
 		{
-			$echo_str = '<button class="btn btn-success submit-btns">재제출</button>';
+			$echo_str = '<button class="btn btn-warning submit-btns">재제출</button>';
+		}
+		else if ($data['status'] == 1)
+		{
+			$echo_str = '<button class="btn btn-success submit-btns">통과</button>';
 		}
 		else // if no data (didn't submit)
 		{
