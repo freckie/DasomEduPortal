@@ -7,13 +7,20 @@
 
 // setting
 $user_name = $_POST['user_name_file'];
-$upload_dir = "./../file/".$user_name;
+$post_id = $_POST['post_id_file'];
+$upload_dir = "/home1/khuphj/public_html/edu/file/$user_name/";
 $allowed = array('cpp', 'py', 'zip');
 
 // variables
 $error = $_FILES['submit-file']['error'];
 $name = $_FILES['submit-file']['name'];
 $ext = array_pop(explode('.', $name));
+
+// make directory
+if(!is_dir($upload_dir))
+{
+	mkdir($upload_dir);
+}
 
 // ERROR Check
 if($error != UPLOAD_ERR_OK)
@@ -41,9 +48,18 @@ if(!in_array($ext, $allowed))
 }
 
 // file move
-move_uploaded_file($_FILES['submit-file']['tmp_name'], "/home1/khuphj/public_html/edu/file/$name");
+if(move_uploaded_file($_FILES['submit-file']['tmp_name'], $upload_dir.$name))
+{
+	// redirection
+	require "db_config.php";
+	$sql = "INSERT INTO dasom_edu_submit (submitter, post, status) VALUES ('$user_name', '$post_id', '0')";
+	$result = $conn->query($sql);
+	$conn->close();
 
-// redirection
-echo "<script>alert('제출 완료.');history.go(-1);</script>";
-
+	echo "<script>alert('제출 완료.');history.go(-1);</script>";
+}
+else
+{
+	echo "<script>alert('제출 실패.');</script>";
+}
 ?>
