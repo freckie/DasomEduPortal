@@ -40,11 +40,11 @@ function echo_submit($post_id, $submitter_id) // echos only submit button
 		$data = $result->fetch_assoc();
 
 		// if data exists (resubmit)
-		if($data['status'] == 0)
+		if($data['status'] == 1)
 		{
 			$echo_str = '<button class="btn btn-warning submit-btns">재제출</button>';
 		}
-		else if ($data['status'] == 1)
+		else if ($data['status'] == 2)
 		{
 			$echo_str = '<button class="btn btn-success submit-btns">통과</button>';
 		}
@@ -116,4 +116,35 @@ function echo_ref($post_id)
 	$conn->close();
 }
 
+// 5. Get whether admission is accepted
+function echo_ad($user_id) // echos only submit button
+{
+	require "db_config.php";
+	$sql = "SELECT admission FROM dasom_account WHERE id='$user_id'";
+
+	if(!($result = $conn->query($sql)))
+	{
+		$echo_str = '로딩 실패';
+	}
+	else
+	{
+		$data = $result->fetch_assoc();
+
+		// if data exists (resubmit)
+		if($data['admission'] == 0)
+		{
+			$echo_str = '<button class="btn btn-danger">미승인</button>';
+		}
+		else // if no data (didn't submit)
+		{
+			$echo_str = '<button class="btn btn-success">승인</button>';
+		}
+
+		$result->free();
+	}
+
+	$conn->close();
+
+	return $echo_str;
+}
 ?>

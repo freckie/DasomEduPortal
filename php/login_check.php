@@ -13,7 +13,8 @@ $id = $_POST['username'];
 $pw = $_POST['userpw'];
 
 $response = array(
-	'status'=>''
+	'status'=>'',
+	'position'=>''
 );
 
 $table_name = "dasom_account";
@@ -38,8 +39,10 @@ if($result = $conn->query($sql))
 			$_SESSION['user_year'] = $row['year'];
 			$_SESSION['user_mail'] = $row['mail'];
 			$_SESSION['user_num'] = $row['number'];
+			$_SESSION['user_pos'] = $row['position'];
 
 			$response['status'] = 'success';
+			$response['position'] = $row['position'];
 		}
 	}
 	else
