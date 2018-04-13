@@ -194,7 +194,7 @@ $result = $conn->query($sql);
     <!-- Custom scripts for this page-->
     <script src="../js/sb-admin-datatables.min.js"></script>
     <script type="text/javascript">
-      function createkey(){
+      /*function createkey(){
        var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
         var string_length = 30;
         var randomstring = '';
@@ -217,9 +217,17 @@ $result = $conn->query($sql);
       function bancancle(key){
        window.open("../DB/ban.php?key="+key, "_blank", "left=300,width=10,height=10");
         confirm("해제되었습니다.");
-        location.reload(); 
-        
+        location.reload();   
+      }*/
+
+      /*
+      function id_accept() {
+        $.ajax({
+          type : 'post',
+          url : './../php/'
+        })
       }
+      */
     </script>
   </div>
 </body>
