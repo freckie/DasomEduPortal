@@ -18,7 +18,11 @@ function login() {
 		success: function(data) {
 			if(data.status == 'success') {
 				console.log('로그인 성공');
-				window.location.href = './main.php';
+				if(data.position == 'admin') {
+					window.location.href = './admin.php';
+				} else {
+					window.location.href = './main.php';
+				}
 			} else if(data.status == 'error') {
 				modal_open();
 			} else if(data.status == 'non-admit') {

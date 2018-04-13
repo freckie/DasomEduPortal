@@ -11,8 +11,16 @@ if(!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']))
 }
 else // session exists
 {
-	echo "<meta http-equiv='refresh' content='0;url=/page/main.php'>";
-	exit;
+	if(!strcmp($_SESSION['user_pos'], 'admin'))
+	{
+		echo "<meta http-equiv='refresh' content='0;url=/page/admin.php'>";
+		exit;
+	}
+	else
+	{
+		echo "<meta http-equiv='refresh' content='0;url=/page/main.php'>";
+		exit;
+	}
 }
 
 ?>

@@ -16,6 +16,7 @@ else
 	$user_year = $_SESSION['user_year'];
 	$user_mail = $_SESSION['user_mail'];
 	$user_num = $_SESSION['user_num'];
+	$user_pos = $_SESSION['user_pos'];
 }
 
 ?>

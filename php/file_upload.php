@@ -52,7 +52,7 @@ if(move_uploaded_file($_FILES['submit-file']['tmp_name'], $upload_dir.$name))
 {
 	// redirection
 	require "db_config.php";
-	$sql = "INSERT INTO dasom_edu_submit (submitter, post, status) VALUES ('$user_name', '$post_id', '0')";
+	$sql = "INSERT INTO dasom_edu_submit (submitter, post, status) VALUES ('$user_name', '$post_id', '1')";
 	$result = $conn->query($sql);
 	$conn->close();
 
