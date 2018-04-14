@@ -133,11 +133,11 @@ function echo_ad($user_id) // echos only submit button
 		// if data exists (resubmit)
 		if($data['admission'] == 0)
 		{
-			$echo_str = '<button class="btn btn-danger">미승인</button>';
+			$echo_str = '<button class="btn btn-danger ad-btn" onclick="idaccept(this)">미승인</button>';
 		}
 		else // if no data (didn't submit)
 		{
-			$echo_str = '<button class="btn btn-success">승인</button>';
+			$echo_str = '<button class="btn btn-success ad-btn" onclick="idaccept(this)">승인</button>';
 		}
 
 		$result->free();

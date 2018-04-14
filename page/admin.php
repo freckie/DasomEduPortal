@@ -141,6 +141,7 @@ $result = $conn->query($sql);
               </tfoot>
               <tbody>
                 <?php
+                $count = 0;
                 while ( $row=$result->fetch_assoc())
                 {
                   if(!strcmp($row['position'], 'admin'))
@@ -149,15 +150,16 @@ $result = $conn->query($sql);
                   }
                   echo'
                   <tr>
-                  <td>'.$row['id'].'</td>
+                  <td id="user-'.$count.'">'.$row['id'].'</td>
                   <td>'.$row['name'].'</td>
                   <td>'.$row['year'].'</td>
                   <td>'.$row['email'].'</td>
                   <td>'.$row['number'].'</td>
                   <td>'.$row['position'].'</td>
-                  <td>'.echo_ad($row['id']).'</td>
+                  <td id=btn-'.$count.'>'.echo_ad($row['id']).'</td>
                   </tr>
                   ';
+                  $count = $count + 1;
                 }
                 ?>
                 
@@ -220,14 +222,41 @@ $result = $conn->query($sql);
         location.reload();   
       }*/
 
-      /*
-      function id_accept() {
+      
+      function idaccept(btn) {
+        var temp = btn.parentElement.id.replace('btn', 'user');
+        var id = document.getElementById(temp).innerHTML;
         $.ajax({
-          type : 'post',
-          url : './../php/'
-        })
+          type:'post',
+          url:'./../php/admin_account_control.php',
+          data: {
+            'userid' : id,
+            'userad' : btn.innerHTML
+          },
+          success: function(data) {
+            alert(data);
+            location.reload();
+          }
+        });
+      }
+
+      /*
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var panel = this.nextElementSibling;
+              if (panel.style.display === "block") {
+                  panel.style.display = "none";
+              } else {
+                  panel.style.display = "block";
+              }
+          });
       }
       */
+      
     </script>
   </div>
 </body>
